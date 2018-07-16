@@ -87,6 +87,20 @@
             <optional> true </optional>
         </dependency>
 
+        <!-- 引入MD5的依赖 -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
+
+
+
         <dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
