@@ -38,7 +38,9 @@ public class MD5Util {
     }
 
     public static void main(String[] args) {
-        String dbPass = inputPass2DBPass("33492526", "1a2b3c4d");
+
+//        String dbPass = inputPass2DBPass("33492526", "1a2b3c4d");
+        String dbPass = inputPass2FromPass("123456789");
         System.out.println(dbPass);
     }
 }

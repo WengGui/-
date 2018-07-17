@@ -11,7 +11,7 @@ public class Result<T> {
         this.data=data;
     }
 
-    private  Result(CodeMsg codeMsg){
+    private Result(CodeMsg codeMsg){
         if (codeMsg == null){
             return;
         }
