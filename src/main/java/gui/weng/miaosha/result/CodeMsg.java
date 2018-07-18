@@ -7,6 +7,7 @@ public class CodeMsg {
     // 通用异常
     public static CodeMsg SUCCESS = new CodeMsg(0,"success");
     public static CodeMsg SERVER_ERROR = new CodeMsg(500100,"服务器异常");
+    public static CodeMsg BIND_ERROR = new CodeMsg(500101,"参数校验异常：%s");
     // 登录模块 5002xx
     public static CodeMsg LOGIN_ERROR = new CodeMsg(500200,"登录异常");
     public static CodeMsg PASSWORD_EMPTY = new CodeMsg(500211,"密码不能为空");
@@ -28,6 +29,13 @@ public class CodeMsg {
         this.code = code;
         this.msg = msg;
     }
+
+    public CodeMsg fillArgs(Object... args) {
+        this.code = this.code;
+         String msg = String.format(this.msg,args);
+         return new CodeMsg(code,msg);
+    }
+
 
     public int getCode() {
 
