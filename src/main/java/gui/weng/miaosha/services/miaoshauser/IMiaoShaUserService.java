@@ -8,5 +8,5 @@ public interface IMiaoShaUserService {
 
     public MiaoshaUser getById(Long id);
 
-    public CodeMsg login(LoginVo loginVo);
+    public boolean login(LoginVo loginVo);
 }

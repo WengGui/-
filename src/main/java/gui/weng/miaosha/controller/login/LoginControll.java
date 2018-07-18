@@ -63,12 +63,8 @@ public class LoginControll {
     @ResponseBody
     public Result<Boolean> doLogin(@Valid LoginVo loginVo){
         log.info(loginVo.toString());
-        CodeMsg loginMsg = miaoShaUserService.login(loginVo);
-        if(loginMsg.getCode() == 0){
-            return Result.success(true);
-        }else{
-            return Result.error(loginMsg);
-        }
+        miaoShaUserService.login(loginVo);
+        return Result.success(true);
     }
 
 }
