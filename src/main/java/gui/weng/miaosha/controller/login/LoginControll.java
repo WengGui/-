@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 @Controller
@@ -61,9 +62,9 @@ public class LoginControll {
     // 使用 spring-boot-starter-validation 简化验证过程
     @RequestMapping("/do_login")
     @ResponseBody
-    public Result<Boolean> doLogin(@Valid LoginVo loginVo){
+    public Result<Boolean> doLogin(HttpServletResponse response,@Valid LoginVo loginVo){
         log.info(loginVo.toString());
-        miaoShaUserService.login(loginVo);
+        miaoShaUserService.login(response,loginVo);
         return Result.success(true);
     }
 

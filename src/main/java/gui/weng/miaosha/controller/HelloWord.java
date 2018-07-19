@@ -75,11 +75,11 @@ public class HelloWord {
         return  Result.success("测试事务");
     }
 
-    @RequestMapping(value = "/redis/get")
-    @ResponseBody
-    public Result<Long> redisGet(){
-        Long v1 = redisService.get("key1", Long.class);
-        return  Result.success(v1);
-    }
+//    @RequestMapping(value = "/redis/get")
+//    @ResponseBody
+//    public Result<Long> redisGet(){
+//        Long v1 = redisService.get("key1", Long.class);
+//        return  Result.success(v1);
+//    }
 }
 
