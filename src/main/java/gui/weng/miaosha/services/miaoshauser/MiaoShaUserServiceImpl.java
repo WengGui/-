@@ -53,12 +53,10 @@ public class MiaoShaUserServiceImpl implements  IMiaoShaUserService{
             throw  new GobalException(CodeMsg.PASSWORD_ERROR);
 
         // 生成token（uuid）
-        addCookie(response, user);
+        String token = UuidUtil.uuid();
+        addCookie(response, token,user);
         return true;
     }
-
-
-
 
     @Override
     public MiaoshaUser getByToken(HttpServletResponse response, String token) {
@@ -68,14 +66,13 @@ public class MiaoShaUserServiceImpl implements  IMiaoShaUserService{
         MiaoshaUser user = redisService.get(MiaoshaUserKey.token,token,MiaoshaUser.class);
         if(user !=null){
             // 延长有效性
-            addCookie(response,user);
+            addCookie(response,token, user);
         }
         return user;
     }
 
 
-    private void addCookie(HttpServletResponse response, MiaoshaUser user) {
-        String token = UuidUtil.uuid();
+    private void addCookie(HttpServletResponse response,String token, MiaoshaUser user) {
         redisService.set(MiaoshaUserKey.token,token,user);
         Cookie cookie = new Cookie(COOKI_NAME_TOKEN, token);
         cookie.setMaxAge(MiaoshaUserKey.token.expireSeconds());
