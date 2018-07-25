@@ -4,8 +4,6 @@ import gui.weng.miaosha.domain.LoginVo;
 import gui.weng.miaosha.result.CodeMsg;
 import gui.weng.miaosha.result.Result;
 import gui.weng.miaosha.services.miaoshauser.IMiaoShaUserService;
-import gui.weng.miaosha.services.userservice.IUserService;
-import gui.weng.miaosha.services.userservice.UserServiceImpl;
 import gui.weng.miaosha.util.validator.ValidatorUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +24,8 @@ public class LoginControll {
     @Autowired
     private IMiaoShaUserService miaoShaUserService;
 
-    @Autowired
-    private IUserService userService;
+//    @Autowired
+//    private IUserService userService;
 
     @RequestMapping("/to_login")
     public String toLogin(){
@@ -62,10 +60,10 @@ public class LoginControll {
     // 使用 spring-boot-starter-validation 简化验证过程
     @RequestMapping("/do_login")
     @ResponseBody
-    public Result<Boolean> doLogin(HttpServletResponse response,@Valid LoginVo loginVo){
+    public Result<String> doLogin(HttpServletResponse response,@Valid LoginVo loginVo){
         log.info(loginVo.toString());
-        miaoShaUserService.login(response,loginVo);
-        return Result.success(true);
+        String token = miaoShaUserService.login(response,loginVo);
+        return Result.success(token);
     }
 
 }

@@ -21,6 +21,10 @@ public class CodeMsg {
     public static CodeMsg ORDER_ERROR = new CodeMsg(500400,"订单异常");
     // 秒杀模块 5005xx
     public static CodeMsg MS_ERROR = new CodeMsg(500500,"秒杀异常");
+    public static CodeMsg MIAO_OVER = new CodeMsg(500501,"商品秒杀已结束");
+    public static CodeMsg REPEATE_MIAOSHA = new CodeMsg(500501, "不能重复秒杀");
+
+    public static CodeMsg REDIS_ERROR = new CodeMsg(500601, "redis服务连接失败");
 
     private CodeMsg() {
     }
@@ -45,4 +49,6 @@ public class CodeMsg {
     public String getMsg() {
         return msg;
     }
+
+
 }

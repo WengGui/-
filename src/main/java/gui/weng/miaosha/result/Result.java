@@ -36,7 +36,7 @@ public class Result<T> {
      * @return
      */
     public static <T> Result<T> error(CodeMsg codeMsg){
-        return new Result<>(codeMsg);
+        return new Result<T>(codeMsg);
     }
 
     public void setCode(int code) {

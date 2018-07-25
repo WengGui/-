@@ -1,9 +1,10 @@
 package gui.weng.miaosha.controller;
 
+import gui.weng.miaosha.domain.GoodsVo;
+import gui.weng.miaosha.domain.MiaoshaUser;
 import gui.weng.miaosha.domain.User;
 import gui.weng.miaosha.result.CodeMsg;
 import gui.weng.miaosha.result.Result;
-import gui.weng.miaosha.services.userservice.IUserService;
 import gui.weng.miaosha.util.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 public class HelloWord {
 
-    @Autowired
-    private IUserService userService;
+//    @Autowired
+//    private IUserService userService;
 
     @Autowired
     private RedisService redisService;
@@ -61,18 +64,24 @@ public class HelloWord {
         return "Hello SpringBoot !";
     }
 
-    @RequestMapping(value = "/getDB")
-    @ResponseBody
-    public Result<User> TestDB(){
-        User user = userService.getById(1);
-       return Result.success(user);
-    }
+//    @RequestMapping(value = "/getDB")
+//    @ResponseBody
+//    public Result<User> TestDB(){
+//        User user = userService.getById(1);
+//       return Result.success(user);
+//    }
+//
+//    @RequestMapping(value = "/testTransactional")
+//    @ResponseBody
+//    public Result<String> testTransactional(){
+//        userService.testInsert();
+//        return  Result.success("测试事务");
+//    }
 
-    @RequestMapping(value = "/testTransactional")
+    @RequestMapping("/info")
     @ResponseBody
-    public Result<String> testTransactional(){
-        userService.testInsert();
-        return  Result.success("测试事务");
+    public Result<MiaoshaUser> info(Model model,MiaoshaUser user) {
+        return Result.success(user);
     }
 
 //    @RequestMapping(value = "/redis/get")

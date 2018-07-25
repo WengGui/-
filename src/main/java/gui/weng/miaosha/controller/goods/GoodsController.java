@@ -47,6 +47,17 @@ public class GoodsController {
 //		return "goods_list";
 //	}
 
+
+	/**
+	 * 高并优化前： 5000个线程 循环10次 995.8/sec 第二次 1167.1/sec 第三次 1238.8/sec
+	 *
+	 * @param model
+	 * @param user
+	 * @return
+	 */
+
+
+
 	//  使用 HandlerMethodArgumentResolver 优化后的代码
     @RequestMapping("/to_list")
     public String list(Model model,MiaoshaUser user) {

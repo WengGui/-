@@ -32,6 +32,7 @@ public class GobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)  // 拦截所有异常
     public Result<String> exceptionHandler(HttpServletRequest request,Exception ex){
+        ex.printStackTrace();
         if(ex instanceof GobalException){
             GobalException gobalException = (GobalException)ex;
             CodeMsg msg = gobalException.getCm();

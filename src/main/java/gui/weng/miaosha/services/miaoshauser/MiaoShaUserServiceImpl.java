@@ -34,7 +34,7 @@ public class MiaoShaUserServiceImpl implements  IMiaoShaUserService{
     }
 
     @Override
-    public boolean login(HttpServletResponse response, LoginVo loginVo) {
+    public String login(HttpServletResponse response, LoginVo loginVo) {
         if(loginVo == null)
             throw  new GobalException(CodeMsg.SERVER_ERROR);
 
@@ -55,7 +55,7 @@ public class MiaoShaUserServiceImpl implements  IMiaoShaUserService{
         // 生成token（uuid）
         String token = UuidUtil.uuid();
         addCookie(response, token,user);
-        return true;
+        return token;
     }
 
     @Override

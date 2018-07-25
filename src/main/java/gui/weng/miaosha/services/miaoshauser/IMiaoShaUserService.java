@@ -10,7 +10,7 @@ public interface IMiaoShaUserService {
 
     public MiaoshaUser getById(Long id);
 
-    public boolean login(HttpServletResponse response,LoginVo loginVo);
+    public String login(HttpServletResponse response,LoginVo loginVo);
 
     public MiaoshaUser getByToken(HttpServletResponse response, String token);
 }
